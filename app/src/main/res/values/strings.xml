@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">HammerDice</string>
+    <string name="title_activity_main">HammerDice</string>
+    <string name="plus_2">2+</string>
+    <string name="plus_3">3+</string>
+    <string name="plus_4">4+</string>
+    <string name="plus_5">5+</string>
+    <string name="plus_6">6+</string>
+    <string name="count_button">Count!</string>
+    <string name="dice_number_hint">Dice to roll</string>
+    <string name="dice_to_kill_hint">Kills needed</string>
+    <string name="save_button_on">Armour saves On</string>
+    <string name="save_button_off">Armour saves Off</string>
+    <string name="to_hit_text">To Hit</string>
+    <string name="to_wound_text">To Wound</string>
+    <string name="donate">Donate</string>
+    <string name="donate_dialog_text">Please donate this app.</string>
+    <string name="cancel">Cancel</string>
+    <string name="authors">Authors: OwAb Owca&amp;Abel</string>
+
+</resources>
