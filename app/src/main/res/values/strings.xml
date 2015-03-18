@@ -19,5 +19,9 @@
     <string name="donate_dialog_text">Please donate this app.</string>
     <string name="cancel">Cancel</string>
     <string name="authors">Authors: OwAb Owca&amp;Abel</string>
+    <string name="title_activity_chart">ChartActivity</string>
+    <string name="chart_button">Chart</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

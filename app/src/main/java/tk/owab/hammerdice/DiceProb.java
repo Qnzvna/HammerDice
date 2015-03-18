@@ -1,7 +1,5 @@
 package tk.owab.hammerdice;
 
-import android.util.Log;
-
 public class DiceProb {
 
 

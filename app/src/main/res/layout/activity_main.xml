@@ -77,19 +77,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="@string/plus_3" />
+                android:text="@string/plus_2" />
 
             <RadioButton
                 android:id="@+id/group0radio1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/plus_4" />
+                android:checked="true"
+                android:text="@string/plus_3" />
 
             <RadioButton
                 android:id="@+id/group0radio2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/plus_4" />
+
+            <RadioButton
+                android:id="@+id/group0radio3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/plus_5" />
+
+            <RadioButton
+                android:id="@+id/group0radio4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plus_6" />
         </RadioGroup>
 
         <TextView
@@ -200,6 +213,15 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:textSize="30sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chart_button"
+            android:id="@+id/chart_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:onClick="chartClick" />
 
         <Button
             android:id="@+id/button1"
