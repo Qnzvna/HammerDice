@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Ustawienia</string>
+    <string name="authors">Autorzy: Owca&amp;Abel</string>
+    <string name="cancel">Anuluj</string>
+    <string name="chart_button">Licz</string>
+    <string name="chart_text">Wykres pokazuje prawdopodobieństwo zabicia X lub więcej wrogów</string>
+    <string name="count_button">Licz!</string>
+    <string name="dice_number_hint">Kości do rzucenia</string>
+    <string name="dice_to_kill_hint">Ilość udanych ataków</string>
+    <string name="donate">Wspomóż</string>
+    <string name="donate_dialog_text">Wspomóż nas</string>
+    <string name="hello_world">Witaj świecie!</string>
+    <string name="save_button_off">Podaj ochrone pancerza</string>
+    <string name="save_button_on">Brak ochrony pancerza</string>
+    <string name="title_activity_chart">Wykres twoich udanych ataków</string>
+    <string name="title_activity_main">Hammer Dice</string>
+    <string name="to_hit_text">Na trafienie</string>
+    <string name="to_wound_text">Na zranienie</string>
+</resources>
