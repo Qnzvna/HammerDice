@@ -9,10 +9,10 @@
     <string name="plus_5" translatable="false">5+</string>
     <string name="plus_6" translatable="false">6+</string>
     <string name="count_button">Count!</string>
-    <string name="dice_number_hint">Dice to roll</string>
+    <string name="dice_number_hint">Number of attacks</string>
     <string name="dice_to_kill_hint">Kills needed</string>
-    <string name="save_button_on">Armour saves Off</string>
-    <string name="save_button_off">Armour saves On</string>
+    <string name="save_button_on">Disable Armour Save</string>
+    <string name="save_button_off">Enable Armour Save</string>
     <string name="to_hit_text">To Hit</string>
     <string name="to_wound_text">To Wound</string>
     <string name="donate">Donate</string>
@@ -23,6 +23,8 @@
     <string name="chart_button">Count</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="chart_text">Bars show probability to kill X or more enemies</string>
+    <string name="y_chart">chance to Wound</string>
+    <string name="x_chart">minimum number of Wounds</string>
+    <string name="max_toast">Max numbers of attack is 50</string>
 
 </resources>

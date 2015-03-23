@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -41,12 +40,15 @@ public class ChartActivity extends Activity {
             }
         }
 
-        BarDataSet comp1 = new BarDataSet(probsHigh, "");
-        comp1.setColor(Color.RED);
+        //BarDataSet comp1 = new BarDataSet(probsLow, "");
+        //comp1.setColor(Color.RED);
+
+        BarDataSet comp2 = new BarDataSet(probsHigh, "");
+        comp2.setColor(Color.BLUE);
 
         ArrayList<BarDataSet> dataSets = new ArrayList<BarDataSet>();
-        dataSets.add(comp1);
-        //dataSets.add(comp2);
+        dataSets.add(comp2);
+        //dataSets.add(comp1);
 
         setContentView(R.layout.activity_chart);
 

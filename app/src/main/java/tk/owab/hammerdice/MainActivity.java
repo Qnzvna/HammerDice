@@ -1,12 +1,14 @@
 package tk.owab.hammerdice;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends Activity {
@@ -76,6 +78,16 @@ public class MainActivity extends Activity {
         } catch (Exception e)
         {
             numberDiceText.setText(this.dices+"");
+        }
+
+        if (this.dices > 50) {
+            Context context = getApplicationContext();
+            CharSequence toastText = getString(R.string.max_toast);
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, toastText, duration);
+            toast.show();
+            return;
         }
 
         int index = toHit.indexOfChild(findViewById(toHit.getCheckedRadioButtonId()));
