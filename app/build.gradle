@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "tk.owab.hammerdice"
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 21
     }
 
@@ -25,4 +25,5 @@ repositories {
 dependencies {
     compile 'com.android.support:support-v4:22.0.0'
     compile 'com.github.PhilJay:MPAndroidChart:v2.0.8'
+    compile 'com.google.android.gms:play-services:6.+'
 }

@@ -19,4 +19,5 @@
     <string name="y_chart">szansa na zranienie</string>
     <string name="x_chart">minimalna ilość ran</string>
     <string name="max_toast">Największa ilość ataków to 50</string>
+    <string name="update_app">Zaktualizuj aplikację</string>
 </resources>

@@ -26,5 +26,7 @@
     <string name="y_chart">chance to Wound</string>
     <string name="x_chart">minimum number of Wounds</string>
     <string name="max_toast">Max numbers of attack is 50</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-1366713450659802/5903297843</string>
+    <string name="update_app">Update app</string>
 
 </resources>

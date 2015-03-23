@@ -9,6 +9,8 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
 
@@ -18,6 +20,11 @@ public class ChartActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Tracker t = (new AnalyticsApp()).getTracker(
+                AnalyticsApp.TrackerName.APP_TRACKER);
+        t.setScreenName("chart");
+        t.send(new HitBuilders.ScreenViewBuilder().build());
 
         Intent intent = getIntent();
         int dices = intent.getIntExtra(MainActivity.DICES, 1);

@@ -4,12 +4,30 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URI;
 
 public class MainActivity extends Activity {
 
@@ -17,20 +35,35 @@ public class MainActivity extends Activity {
     public final static String HIT = "tk.owab.hammerdice.HIT";
     public final static String WOUND = "tk.owab.hammerdice.WOUND";
     public final static String ASAVE = "tk.owab.hammerdice.ASAVE";
+    public final static int buildVersion = 0;
 
     private int dices = 1;
     private double chanceToHit = 1;
     private double chanceToWound = 1;
     private double chanceToSave = 0;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest.Builder addBuilder = new AdRequest.Builder();
+        addBuilder.addTestDevice("C5F09BDAA50C1844A27DA07C18321D88");
+        AdRequest adRequest = addBuilder.build();
+        mAdView.loadAd(adRequest);
+
+        Tracker t = ((AnalyticsApp) getApplication()).getTracker(AnalyticsApp.TrackerName.APP_TRACKER);
+
+        t.setScreenName("tk.owab.hammerdice.MainActivity");
+
+        // Send a screen view.
+        t.send(new HitBuilders.ScreenViewBuilder().build());
+
+    }
 
     private double setProbFromDice(int index) {
-        switch(index) {
+        switch (index) {
             case 0: // 2+
                 return 5.0 / 6;
             case 1: // 3+
@@ -46,38 +79,36 @@ public class MainActivity extends Activity {
         }
     }
 
-	public void showSave(View v) {
-		ToggleButton saveButton = (ToggleButton)findViewById(R.id.button2);
-		RadioGroup toShow = (RadioGroup)findViewById(R.id.radioGroup2);
-		
-		if (!saveButton.isChecked())
-		{
-			toShow.setVisibility(View.GONE);
-		} else {
-			toShow.setVisibility(View.VISIBLE);
-		}
-	}
-	
-	public void donateClick(View v) {
-		Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+    public void showSave(View v) {
+        ToggleButton saveButton = (ToggleButton) findViewById(R.id.button2);
+        RadioGroup toShow = (RadioGroup) findViewById(R.id.radioGroup2);
+
+        if (!saveButton.isChecked()) {
+            toShow.setVisibility(View.GONE);
+        } else {
+            toShow.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void donateClick(View v) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                 Uri.parse("http://hammer.serwin.tk/donate"));
         startActivity(browserIntent);
-	}
+    }
 
     public void chartClick(View v) {
-        RadioGroup toHit = (RadioGroup)findViewById(R.id.radioGroup0);
-        RadioGroup toWound = (RadioGroup)findViewById(R.id.radioGroup1);
-        ToggleButton saveButton = (ToggleButton)findViewById(R.id.button2);
-        RadioGroup toSave = (RadioGroup)findViewById(R.id.radioGroup2);
-        EditText numberDiceText = (EditText)findViewById(R.id.editText1);
+        RadioGroup toHit = (RadioGroup) findViewById(R.id.radioGroup0);
+        RadioGroup toWound = (RadioGroup) findViewById(R.id.radioGroup1);
+        ToggleButton saveButton = (ToggleButton) findViewById(R.id.button2);
+        RadioGroup toSave = (RadioGroup) findViewById(R.id.radioGroup2);
+        EditText numberDiceText = (EditText) findViewById(R.id.editText1);
 
         String text;
         try {
             text = numberDiceText.getText().toString();
             this.dices = Integer.parseInt(text);
-        } catch (Exception e)
-        {
-            numberDiceText.setText(this.dices+"");
+        } catch (Exception e) {
+            numberDiceText.setText(this.dices + "");
         }
 
         if (this.dices > 50) {
@@ -96,8 +127,7 @@ public class MainActivity extends Activity {
         index = toWound.indexOfChild(findViewById(toWound.getCheckedRadioButtonId()));
         this.chanceToWound = this.setProbFromDice(index);
 
-        if (saveButton.isChecked())
-        {
+        if (saveButton.isChecked()) {
             index = toSave.indexOfChild(findViewById(toSave.getCheckedRadioButtonId()));
             this.chanceToSave = this.setProbFromDice(index);
         } else {
@@ -112,4 +142,5 @@ public class MainActivity extends Activity {
 
         startActivity(intent);
     }
+
 }
